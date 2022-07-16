@@ -4,7 +4,7 @@ import path from "path";
 import mongoose from "mongoose";
 import { nanoid } from "nanoid";
 import urlExist from "url-exist";
-const cors=require("cors");
+import cors from "cors";
 const corsOptions = {
    origin:'*', 
    credentials:true,       
