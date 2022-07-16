@@ -4,6 +4,12 @@ import path from "path";
 import mongoose from "mongoose";
 import { nanoid } from "nanoid";
 import urlExist from "url-exist";
+const cors=require("cors");
+const corsOptions = {
+   origin:'*', 
+   credentials:true,       
+   optionSuccessStatus:200,
+};
 import URL from "./models/urlModel.js";
 
 const __dirname = path.resolve();
@@ -15,6 +21,7 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(__dirname + "/public"));
+app.use(cors(corsOptions));
 
 mongoose.connect(process.env.MONGO_DB_URI, (err) => {
   if (err) {
