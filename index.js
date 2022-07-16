@@ -39,7 +39,9 @@ app.get("/", (req, res) => {
 
 app.post("/link", validateURL, async (req, res) => {
   const { url } = req.body;
+  console.log(url);
   const result = await URL.findOne({url : url});
+  console.log(result);
   if(result){
     // console.log(" result is:  "+result.id);
     res.json({ message: `URL already exist\nhttp://localhost:8000/${result.id}`, type: "success" });
